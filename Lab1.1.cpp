@@ -18,7 +18,7 @@ int main() {
     // TODO: Implement the for loop to print the message N times
     for (int i = 0; i < N; i++) {
         printf("Hello Loop!\n");
-    } // end if
+    } // end for
 
     return 0;
 } // end function
