@@ -10,18 +10,19 @@ int main() {
     } // end if
     
     // TODO: Implement the cascading if-else if-else logic here
-    if (score >= 80) {
-        printf("Grade A");
+    if (score < 0 || score > 100) {
+        printf("Invalid score\n");
+    } else if (score >= 80){
+        printf("Grade A\n");
     } else if (score >= 70) {
-        printf("Grade B");
+        printf("Grade B\n");
     } else if (score >= 60) {
-        printf("Grade C");
+        printf("Grade C\n");
     } else if (score >= 50) {
-        printf("Grade D");
+        printf("Grade D\n");
     } else {
-        printf("Grade F");
-    } //end if-else
+        printf("Grade F\n");
+    } // end if
 
     return 0;
 } // end main
-
