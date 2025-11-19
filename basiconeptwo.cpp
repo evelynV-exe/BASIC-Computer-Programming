@@ -7,7 +7,7 @@ int main() {
     // รับค่าคะแนนสอบ
     if (scanf("%d", &score) != 1) {
         return 1; // Handle input failure
-    }
+    } // end if
     
     // TODO: Implement the cascading if-else if-else logic here
     if (score >= 80) {
@@ -20,7 +20,8 @@ int main() {
         printf("Grade D");
     } else {
         printf("Grade F");
-    }
+    } //end if-else
 
     return 0;
-}
+} // end main
+
