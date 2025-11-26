@@ -1,19 +1,14 @@
-// Pre-code (โค้ดบังคับ)
 #include <stdio.h>
 
 int main() {
-    int N, i, quantity;
+    int loop, i, quantity;
     float unitPrice, itemCost, grandTotal = 0.0;
     
-    // รับค่า N (จำนวนรายการ)
-    if (scanf("%d", &N) != 1) {
+    if (scanf("%d", &loop) != 1) {
         return 1;
     }
     
-    // TODO: Implement the for loop (N times)
-    // TODO: Inside the loop, receive unitPrice and quantity
-    // TODO: Implement the if-else discount logic and accumulate grandTotal
-    for (i = 0; i < N; i++) {
+    for (i = 0; i < loop; i++) {
         scanf("%f %d", &unitPrice, &quantity);
 
         itemCost = unitPrice * quantity;
