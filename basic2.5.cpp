@@ -1,33 +1,27 @@
-// Pre-code (โค้ดบังคับ)
 #include <stdio.h>
 
 int main() {
-    int score;
+    int num;
     int countA = 0, countB = 0, countC = 0, countD = 0, countF = 0;
     
-    // รับค่าคะแนนตัวแรก
-    if (scanf("%d", &score) != 1) {
+    if (scanf("%d", &num) != 1) {
         return 1;
     }
 
-    // TODO: Implement the while loop (while score != -1)
-    while (score != -1) {
-        // TODO: Implement the cascading if-else if-else logic 
-        // to determine the grade and increment the correct counter.
-        if (score >= 80) {
+    while (num != -1) {
+        if (num >= 80) {
             countA++;
-        } else if (score >= 70) {
+        } else if (num >= 70) {
             countB++;
-        } else if (score >= 60) {
+        } else if (num >= 60) {
             countC++;
-        } else if (score >= 50) {
+        } else if (num >= 50) {
             countD++;
         } else {
             countF++;
         }
         
-        // ต้องรับค่าคะแนนถัดไปที่ท้ายลูป
-        if (scanf("%d", &score) != 1) {
+        if (scanf("%d", &num) != 1) {
             break; 
         }
     }
