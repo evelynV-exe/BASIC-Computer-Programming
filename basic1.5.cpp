@@ -3,34 +3,30 @@
 
 int main() {
     int number;
-    int evenSum = 0;
-    int oddSum = 0;
+    int evenNumSum = 0;
+    int oddNumSum = 0;
     
-    // รับค่าตัวเลขตัวแรกก่อนเริ่มลูป
     if (scanf("%d", &number) != 1) {
         return 1;
     }
 
-    // TODO: Implement the while loop and the if-else logic for even/odd accumulation
     while (number != 0) {
-        // ... Logic goes here ...
         if (number == 0) {
             break;
         }
 
         if (number % 2 == 0) {
-            evenSum += number;
+            evenNumSum += number;
         } else {
-            oddSum += number;
+            oddNumSum += number;
         }
 
-        // ต้องรับค่าตัวเลขถัดไปที่ท้ายลูป
         if (scanf("%d", &number) != 1) {
             break; 
         }
     }
 
-    printf("Even Sum: %d\n", evenSum);
-    printf("Odd Sum: %d\n", oddSum);
+    printf("Even Sum: %d\n", evenNumSum);
+    printf("Odd Sum: %d\n", oddNumSum);
     return 0;
 }
