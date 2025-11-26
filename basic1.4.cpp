@@ -2,19 +2,16 @@
 #include <stdio.h>
 
 int main() {
-    int N, sum = 0, i;
-    
-    // รับค่า N
+    int N, total = 0, i;
+
     if (scanf("%d", &N) != 1) {
-        return 1; // Handle input failure
+        return 1;
     }
     
-    // TODO: Implement the for loop to calculate the sum from 1 to N
-
     for (int i = 1; i <= N; i++) {
-        sum += i;
+        total += i;
     }
 
-    printf("%d\n", sum);
+    printf("%d\n", total);
     return 0;
 }
