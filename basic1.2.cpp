@@ -1,22 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int num;
-    if (scanf("%d", &num) != 1) {
+    int num1, num2, operationCode, result;
+    
+    if (scanf("%d %d %d", &num1, &num2, &operationCode) != 3) {
         return 1;
     }
     
-    if (num >= 80){
-        printf("Grade A");
-    } else if (num >= 70) {
-        printf("Grade B");
-    } else if (num >= 60) {
-        printf("Grade C");
-    } else if (num >= 50) {
-        printf("Grade D");
-    } else {
-        printf("Grade F");
+    //for each case: 1. sum, 2. subtraction, 3. muliply, 4. division
+    switch (operationCode) {
+        case 1:
+            result = num1 + num2;
+            printf("%d", result);
+            break;
+        case 2:
+            result = num1 - num2;
+            printf("%d", result);
+            break;
+        case 3:
+            result = num1 * num2;
+            printf("%d", result);
+            break;
+        case 4:
+            result = num1 / num2;
+            printf("%d", result);
+            break;
+        default:
+            printf("Invalid Operation");
+            break;
     }
-
+    
     return 0;
 }
