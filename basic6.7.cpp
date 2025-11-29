@@ -1,29 +1,29 @@
 #include <stdio.h>
 
-//calculate win and odds function
-float calculateWinOdds(int outs) {
-    float percent = outs * 4;
-    return percent;
+// Function to compute chance of winning using the x4 rule
+float getWinningChance(int outCount) {
+    return outCount * 4.0f;
 }
 
 int main() {
-    int cardOuts;
-    float winProbability;
+    int outs;
+    float probability;
 
-    printf("Enter the card outs: ");
-    scanf("%d", &cardOuts);
+    printf("Number of outs: ");
+    scanf("%d", &outs);
 
-    winProbability = calculateWinOdds(cardOuts);
+    probability = getWinningChance(outs);
 
-    printf("\n--- POKER PROBABILITY REPORT (2 Cards Remaining) ---\n");
-    printf("Calculated Outs: %d\n", cardOuts);
-    printf("Win Probability (Odds x 4): %.2f%%\n", winProbability);
+    printf("\n--- POKER PROBABILITY SUMMARY (2 Cards Remaining) ---\n");
+    printf("Outs detected: %d\n", outs);
+    printf("Estimated chance of winning: %.2f%%\n", probability);
 
-    printf("Assessment: ");
-
-    if (winProbability >= 0.30) {
-        printf("HIGH Win Probability");
+    printf("Result: ");
+    if (probability >= 30.0f) {
+        printf("Likely TO WIN\n");
     } else {
-        printf("LOW Win Probaility");
+        printf("Unlikely TO WIN\n");
     }
+
+    return 0;
 }
