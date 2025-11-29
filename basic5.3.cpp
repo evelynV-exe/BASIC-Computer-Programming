@@ -1,37 +1,43 @@
 #include <stdio.h>
 #define SIZE 5
 
-int calculateSum(int array[], int size) {
-    int totalSum;
-    for (int i = 0; i < SIZE; i++) {
-        totalSum += array[i];
+/* 
+    getArraySum
+    - Loops through an array and returns the sum of all elements.
+*/
+int getArraySum(int values[], int size) {
+    int sum = 0;    // initialize accumulator
+    for (int i = 0; i < size; i++) {
+        sum += values[i];
     }
-
-    return totalSum;
+    return sum;
 }
 
 int main() {
-    int numbers[SIZE];
-    int totalSum;
-    float average;
-    int i;
+    int data[SIZE];
+    int sum;
+    float avg;
 
-    printf("Enter %d integer numbers:\n", SIZE);
-    for (i = 0; i < SIZE; i++) {
-        scanf("%d", &numbers[i]);
+    /* Input section */
+    printf("Enter %d integers:\n", SIZE);
+    for (int i = 0; i < SIZE; i++) {
+        scanf("%d", &data[i]);
     }
 
-    totalSum = calculateSum(numbers, SIZE);
-    average = (float)totalSum / SIZE; 
+    /* Calculation section */
+    sum = getArraySum(data, SIZE);
+    avg = (float) sum / SIZE;
 
-    printf("\n--- ARRAY AVERAGE REPORT ---\n");
-    printf("Recorded Numbers: ");
-    for (i = 0; i < SIZE; i++) {
-        printf("%d ", numbers[i]);
+    /* Output report */
+    printf("\n--- ARRAY STATISTICS REPORT ---\n");
+    printf("Numbers Entered : ");
+    for (int i = 0; i < SIZE; i++) {
+        printf("%d ", data[i]);
     }
     printf("\n");
-    printf("Total Sum: %d\n", totalSum);
-    printf("Average: %.2f\n", average);
+
+    printf("Total Sum       : %d\n", sum);
+    printf("Average Value   : %.2f\n", avg);
 
     return 0;
 }
