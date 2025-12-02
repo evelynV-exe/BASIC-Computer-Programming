@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 struct SalesRecord {
     char name[50];
@@ -6,36 +7,45 @@ struct SalesRecord {
     float actual;
 };
 
-int main() {
-    int N, i;
-    float grandTotalCommision = 0.0;
-    float baseCommision;
+float calculateCommission(float target, float actual) {
+    float commission = actual * 0.10; // base 10%
 
-    if (scanf("%d", &N) != 1) {
+    if (actual >= target * 1.20) {
+        commission += 200.0; // high bonus
+    } else if (actual >= target) {
+        commission += 50.0; // basic reward
+    } else if (actual < target * 0.90) {
+        commission -= 100.0; // penalty
+    }
+    return commission;
+}
+
+int main(void) {
+    int numRecords;
+    float grandTotalCommission = 0.0;
+
+    printf("Enter number of salesperson records: ");
+    if (scanf("%d", &numRecords) != 1 || numRecords <= 0) {
+        printf("Invalid number of records.\n");
         return 1;
     }
 
-    struct SalesRecord records[N];
+    struct SalesRecord records[numRecords];
 
-    for (i = 0; i < N; i++) {
+    for (int i = 0; i < numRecords; i++) {
+        printf("\nRecord %d (target actual name): ", i + 1);
+
         if (scanf("%f %f %s", &records[i].target, &records[i].actual, records[i].name) != 3) {
+            printf("Invalid input detected.\n");
             return 1;
         }
 
-        baseCommision = records[i].actual * 0.10;
-
-        if (records[i].actual >= records[i].target * 1.20) {
-            baseCommision += 200.0;
-        } else if (records[i].actual >= records[i].target) {
-            baseCommision += 50.0;
-        } else if (records[i].actual < records[i].target * 0.90) {
-            baseCommision -= 100.0;
-        }
-
-        grandTotalCommision += baseCommision;
+        float commission = calculateCommission(records[i].target, records[i].actual);
+        grandTotalCommission += commission;
     }
 
-    printf("Grand Total Commision: %.2f\n", grandTotalCommision);
+    printf("\n--- Commission Summary ---\n");
+    printf("Grand Total Commission: %.2f\n", grandTotalCommission);
 
     return 0;
 }
